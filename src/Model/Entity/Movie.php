@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $description
  * @property int $duration
+ * @property string $date
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -30,6 +31,7 @@ class Movie extends Entity
     protected $_accessible = [
         'name' => true,
         'description' => true,
+        'releaseYear' => true,
         'duration' => true,
         'created' => true,
         'modified' => true,
