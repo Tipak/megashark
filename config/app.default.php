@@ -183,7 +183,7 @@ return [
             'host' => 'localhost',
             'port' => 25,
             'timeout' => 30,
-            'username' => 'user',
+            'username' => 'root',
             'password' => 'secret',
             'client' => null,
             'tls' => null,
