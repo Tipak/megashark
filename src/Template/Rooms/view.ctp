@@ -37,18 +37,7 @@
             <td><?= h($room->modified) ?></td>
         </tr>
        
-    </table>
-        <tbody>
-            <?php foreach ($showtimes as $showtime): ?>
-                <tr>
-                    <td><?php echo "$showtime" ?></td>
-                
-                </tr>
-            <?php endforeach; ?>
-      </tbody>
-    <table>
-        
-    </table>
+    
 </div>
 
 
