@@ -139,15 +139,27 @@ class ShowtimesController extends AppController
     public function planning($id = null){
         
         $rooms = $this->Showtimes->Rooms->find('list');
+        $firstRoomId = (array_keys($rooms->toArray()))[0];
         
-        if ($this->request->is('post')) {
-            $showtimes = $this->Showtimes->find()
-            ->where(['room_id ' => $this->request->getData('room_id')])
+  
+        $showtimes = $this->Showtimes
+            ->find()
             ->contain([
-                        'Movies',
-                        'Rooms'
-                    ]);
+                'Movies',
+                'Rooms'
+            ]);
+  
+        if ($this->request->is('post')) {
+            
+            $showtimes = $showtimes->where([
+                'room_id ' => $this->request->getData('room_id')
+           ]);
         }    
+        else{
+            $showtimes = $showtimes
+                ->where(['room_id ' => $firstRoomId
+            ]); 
+        }
         
         $showtimesByWeek = [];
         $days=["","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
